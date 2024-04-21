@@ -6,7 +6,18 @@ body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-main{
+#feluletValto{
+    float: right;
+    margin: 0px;
+    text-decoration: none;
+    padding: 10px;
+    border: 3px solid red;
+    background-color: rgb(34, 34, 34);
+    color: red;
+    border-radius: 5px;
+}
+
+#adminMain{
     margin: auto;
     padding: 15px;
     width: 80%;
