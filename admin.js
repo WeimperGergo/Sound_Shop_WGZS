@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WSounds - Webáruház</title>
-    <script type="module" src="admin.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="stilus.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-</head>
-<body id="adminBody">
-    <!--
-    <main id="adminMain">
+import { adminHtmlOsszeallit, elotteMegjelenit, utanaMegjelenit } from "./fuggvenyek.js";
+
+const bodyELEM = $("body");
+if (window.innerWidth <= 1000) {
+    elotteMegjelenit(bodyELEM, `<a href="index.html" class="feluletValto" id="felhFelValt"><i class="material-icons">account_circle</i></a><br>`);
+}else elotteMegjelenit(bodyELEM, `<a href="index.html" class="feluletValto" id="felhFelValt">Felhasználói felület</a><br>`);
+
+utanaMegjelenit(bodyELEM, `
+<main id="adminMain">
         <h1>Adatok Listázása</h1>
         <header>
             <h2>Hangeszközök adatainak megjelenítése: <b>Admin felület</b></h2>
@@ -74,6 +68,4 @@
 
         
     </main>
--->
-</body>
-</html>
+`);

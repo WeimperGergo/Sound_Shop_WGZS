@@ -9,3 +9,11 @@ export function adminHtmlOsszeallit(lista) {
 
     return txt;
 }
+
+export function utanaMegjelenit(elem, tartalom) {
+    elem.append(tartalom);
+}
+
+export function elotteMegjelenit(elem, tartalom) {
+    elem.prepend(tartalom);
+}
