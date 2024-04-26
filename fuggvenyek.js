@@ -10,7 +10,7 @@ export function adminHtmlOsszeallit() {
                 <h2>Hangeszközök adatainak megjelenítése: <b>Admin felület</b></h2>
             </header>
             <form class="bekertAdatok tablazatFelettiAdatBeker">
-                <input type="text" id="kereso" name="kereso" value="keresés...">
+                <input type="text" id="kereso" name="kereso" placeholder="keresés...">
                 
                 <label for="szuro">Szűrés:</label>
                 <select name="szuro" id="szuro">

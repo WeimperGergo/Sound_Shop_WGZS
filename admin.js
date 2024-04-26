@@ -28,9 +28,9 @@ keresGOMB.on("click", function(){
 
     const szurtLISTA = tulajdonsagSzur(termekLISTA, keresoMEZO.val().toUpperCase());
 
-    const tablazat = adminTablazatOsszeallit(termekLISTA);
+    const TABLAZAT = adminTablazatOsszeallit(szurtLISTA);
 
-    tablazatMegjelenit(articleELEM, tablazat);
+    tablazatMegjelenit(articleELEM, TABLAZAT);
 });
 
 
