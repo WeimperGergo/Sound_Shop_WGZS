@@ -11,7 +11,7 @@ export const termekLISTA = [
         modell : "ZX110NC",
         marka : "SONY",
         tipus : "headset",
-        raktaron : true,
+        raktaron : false,
         ar : 15999,
         kep : "kepek/SONY_ZX110NC.jpg"
     },
@@ -35,7 +35,7 @@ export const termekLISTA = [
         modell : "MI Basic",
         marka : "XIAOMI",
         tipus : "bt_fulhallgato",
-        raktaron : true,
+        raktaron : false,
         ar : 2999,
         kep : "kepek/XIAOMI_MI_BASIC.jpg"
     },
