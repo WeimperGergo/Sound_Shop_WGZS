@@ -2,25 +2,90 @@ body{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
 }
+
+body header h1{
+    text-align: center;
+    text-shadow: 1px 1px 10px black;
+}
+
 /* Főleg index */
 #indexBody{
-    background-color: rgb(162, 162, 162);
+    background-color: rgba(131, 3, 3, 0.938);
 }
 
 #indexMain{
+    display: grid;
+    grid-template-areas: 
+    "he he he he"
+    "be be be be"
+    "ar ar ar as"
+    "fo fo fo fo"
+    ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+#keresGomb{
+    background-color: lightgreen;
+    font-size: medium;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: large;
+}
+
+#indexBeker{
+    grid-area: be;
+}
+
+#termekekArticle{
+    float: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: ar;
+    width: 90%;
+}
+
+#kosarAside{
+    grid-area: as;
+    display: block;
+    align-items: center;
+    background-color: rgb(45, 45, 45);
+    border: 5px solid rgb(30, 30, 30);
+    border-radius: 10px;
+    margin: 10px;
+    max-width: 400px;
+    width: 300px;
+    opacity: 95%;
+}
+
+#kosarCim{
+    text-align: center;
+    color: rgb(203, 203, 203);
+    text-shadow: 1px 1px 4px black;
+    border: 1px double black;
     margin: auto;
-    width: 100%;
+    background-color: rgba(12, 12, 12, 0.854);
+    border-radius: 5px;
 }
 
-#indexArticle{
-
+.termekekKartya{
+    max-width: 290px;
+    height: 430px;
+    border: 5px outset black;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(59, 59, 59, 0.774);
 }
 
-.termekek{
-    max-width: 350px;
+.termekKep{
     width: 100%;
-    height: 300px;
-    border: 1px solid black;
+    height: 60%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    opacity: 95%;
 }
 
 #indexKeresoAllapotGomb{
@@ -31,6 +96,27 @@ body{
     border: 1px solid black;
 }
 
+.kozeptxt{
+    text-align: center;
+    margin: 7px 0px 7px 0px;
+}
+
+.termekCim{
+    color: white;
+}
+
+.termekAr{
+    float: left;
+    color: white;
+}
+
+.kosarbaGomb{
+    float: right;
+    margin: 10px;
+    margin-right: 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
 
 /* Főleg admin */
 
@@ -39,6 +125,7 @@ body{
 }
 
 .feluletValto{
+    display: block;
     text-decoration: none;
     padding: 10px 30px;
     border: 5px solid rgba(180, 1, 1, 0.774);
@@ -47,7 +134,6 @@ body{
     background-color: rgb(43, 41, 41);
     color: white;
     border-radius: 15px;
-    display: block;
     text-align: center;
     margin: auto;
     width: 10%;
@@ -65,15 +151,13 @@ body{
     border-radius: 20px;
     box-shadow: 2px 2px 10px rgb(20, 20, 20);
     border: 5px rgb(50, 50, 50) solid;
-
     color: white;
-    /*
-    -webkit-text-stroke: 0.3px;
-    -webkit-text-stroke-color: rgb(200, 162, 162);*/
 }
 
 header{
     margin: 10px;
+    grid-area: he;
+    color: white;
 }
 
 form{
@@ -82,7 +166,6 @@ form{
 
 .tablazatFelettiAdatBeker{
     margin:auto;
-    width: 90%;
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -105,12 +188,6 @@ form{
     max-height: 35px;
     display: block;
     align-content: center;
-}
-
-#keresGomb{
-    background-color: lightgreen;
-    font-size: medium;
-    margin-right: 15px;
 }
 
 .arMinMax{
@@ -183,11 +260,13 @@ form{
 
 footer{
     text-align: center;
+    grid-area: fo;
 }
 
 
 
 /* R E S Z P O N Z I V I T Á S */
+
 
 @media screen and (max-width: 1000px) {
     .feluletValto{
@@ -201,6 +280,86 @@ footer{
     #adminMain{
         margin-top: 50px;
     }
+ 
+}
 
+@media screen and (max-width: 1400px) {
+    #termekekArticle{
+        grid-template-columns: 1fr 1fr;
+        
+    }
     
+    #indexMain{
+        grid-template-areas: 
+        "he he he"
+        "be be be"
+        "ar ar as"
+        "fo fo fo"
+        ;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+ 
+}
+
+@media screen and (max-width: 1150px) {
+    #termekekArticle{
+        grid-template-columns: 1fr;
+    }
+ 
+    #indexMain{
+        grid-template-areas: 
+        "he he"
+        "be be"
+        "ar as"
+        "fo fo"
+        ;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    #indexMain article, #indexmain aside{
+        margin: auto;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    .tablazatFelettiAdatBeker{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    }
+
+    .tablazatFelettiAdatBeker > *{
+        height: 50px;
+    }
+
+    #indexMain{
+        width: 100%;
+    }
+ 
+}
+
+@media screen and (max-width: 850px) {
+    .tablazatFelettiAdatBeker{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    #indexMain{
+        max-width: 700px;
+        grid-template-areas: 
+        "he"
+        "be"
+        "ar"
+        "as"
+        "fo"
+        ;
+    }   
+
+    #kosarAside{
+        min-height: 400px;
+    }
+ 
 }

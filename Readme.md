@@ -46,7 +46,7 @@ termekLISTA = [{},{}] - itt vannak a megjelenítendő adatok
 
 2. **indexHtmlOsszeallit()->txt** | Összeállítja a főoldal html szerkezetét egy szöveges változóba  
 
-3. **szovegMegjelenit(txt)** | Megjeleníti egy adott html elemben a paraméterben kapott szöveget
+3. **--** |
 
 4. **tulajdonsagSzur(lista, keresett) -> rendezettLista** | Keresett szöveg paraméter alapján leszűri a listát, a keresett szöveget vizsgálja a lista elemein belül. Itt egy olyan listát vizsgál amiben a név, márka és típus van benne (nevMarkaTipusLista-ban)
 
@@ -64,8 +64,14 @@ termekLISTA = [{},{}] - itt vannak a megjelenítendő adatok
 
 11. **kepek(lista) -> kepekLista** | Paraméterbe megkapja az adatok listát, annak objektumai index-dik eleméhez hozzárendeli a képeket - D R A F T
 
-12. **adminTablazatOsszeallit(lista) -> tablazat** paraméterbe kapott listának az elemeit egy html táblázatba rendezi, egy szöveggel tér vissza amit még meg kell jeleníteni.
+12. **adminTablazatOsszeallit(lista) -> tablazat** | Paraméterbe kapott listának az elemeit egy html táblázatba rendezi, egy szöveggel tér vissza amit még meg kell jeleníteni.
 
-13. **utanaMegjelenit(elem, tartalom)** a kapott elemen belülre megjeleníti a szöveges tartalmat, hozzáfűzéssel
+13. **utanaMegjelenit(elem, tartalom)** | A kapott elemen belülre megjeleníti a szöveges tartalmat, hozzáfűzéssel
 
-14. **elotteMegjelenit(elem, tartalom)** a kapott elemen belülre megjeleníti a szöveges tartalmat, eléfűzéssel
+14. **elotteMegjelenit(elem, tartalom)** | A kapott elemen belülre megjeleníti a szöveges tartalmat, eléfűzéssel
+
+15. **termekekOsszeallit(lista) -> tartalom** | Összeállítja a lista elemeit termékekként
+
+16. **termekMegjelenit(tartalom)** | Megjeleníti a paraméterbe elemeit termékenként a főoldalon - DRAFT
+
+17. **megjelenitElemben(elem, tartalom)** | Az elem tartalmát felülírva megjeleníti az új tartalmat

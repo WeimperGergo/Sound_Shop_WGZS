@@ -1,7 +1,7 @@
 import { termekLISTA } from "./adatok.js";
 import { 
     adminHtmlOsszeallit, elotteMegjelenit, utanaMegjelenit, tulajdonsagSzur,
-    adminTablazatOsszeallit, tablazatMegjelenit
+    adminTablazatOsszeallit, megjelenitElemben
  } from "./fuggvenyek.js";
 
 const bodyELEM = $("body");
@@ -30,7 +30,7 @@ keresGOMB.on("click", function(){
 
     const TABLAZAT = adminTablazatOsszeallit(szurtLISTA);
 
-    tablazatMegjelenit(articleELEM, TABLAZAT);
+    megjelenitElemben(articleELEM, TABLAZAT);
 });
 
 

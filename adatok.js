@@ -34,7 +34,7 @@ export const termekLISTA = [
     {
         modell : "MI Basic",
         marka : "XIAOMI",
-        tipus : "bt_fulhallgato",
+        tipus : "fulhallgato",
         raktaron : false,
         ar : 2999,
         kep : "kepek/XIAOMI_MI_BASIC.jpg"
@@ -47,4 +47,20 @@ export const termekLISTA = [
         ar : 31999,
         kep : "kepek/BEATS_STUDIO_BUDS.jpg"
     },
+    {
+        modell : "Studio Pro",
+        marka : "BEATS",
+        tipus : "bt_headset",
+        raktaron : true,
+        ar : 144999,
+        kep : "kepek/BEATS_STUDIO_PRO.jpg"
+    },
+    /*{
+        modell : "",
+        marka : "",
+        tipus : "",
+        raktaron : false,
+        ar : 10,
+        kep : "kepek/"
+    },*/
 ];
