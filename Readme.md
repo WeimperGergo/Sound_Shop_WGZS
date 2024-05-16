@@ -46,11 +46,11 @@ termekLISTA = [{},{}] - itt vannak a megjelenítendő adatok
 
 2. **indexHtmlOsszeallit()->txt** | Összeállítja a főoldal html szerkezetét egy szöveges változóba  
 
-3. **tulajdonsagSzur(lista, keresett) -> rendezettLista** | Keresett szöveg paraméter alapján leszűri a listát, a keresett szöveget vizsgálja a lista elemein belül. Itt egy olyan listát vizsgál amiben a név, márka és típus van benne (nevMarkaTipusLista-ban)
+3. **tulajdonsagSzur(lista, keresett) -> ujLISTA** | Keresett szöveg paraméter alapján leszűri a listát, a keresett szöveget vizsgálja a lista elemein belül. Itt egy olyan listát vizsgál amiben a név, márka és típus van benne (nevMarkaTipusLista-ban)
 
-4. **arSzur(lista, min, max) -> rendezettLista** | Paraméterbe kapott min és max ár érték közé szűri le a listát
+4. **arSzur(lista, min, max) -> ujLISTA** | Paraméterbe kapott min és max ár érték közé szűri le a listát
 
-5. **termekRendez(lista, irany, miSzerint) -> rendezettLista** | Paraméterbe kapott irány alapján rendezi a listát termék modellnév, vagy ár szerint
+5. **termekRendez(lista, irany, miSzerint) -> ujLISTA** | Paraméterbe kapott irány alapján rendezi a listát termék modellnév, vagy ár szerint
 
 6. **adatBovit(lista) -> bovitettLista** | Az űrlapról összegyűjti az adatokat amiket egy objektumba tárol el, majd ezt beleteszi a listába -> A függvény akkor fut le, ha a SUBMIT gomb-ra kattintunk - D R A F T
 

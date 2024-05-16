@@ -1,5 +1,5 @@
 // Kell kosarLista = [] ami mindig novekszik a tartalmakkal.
-// Kosarbatez(kosarLista, termekLista, id) -> az adott id-jű terméket beleteszi a kosarlistaba
+// Kosarbatesz(kosarLista, termekLista, id) -> az adott id-jű terméket beleteszi a kosarlistaba
 import { termekLISTA } from "./adatok.js";
 
 export function adminHtmlOsszeallit() {
@@ -9,9 +9,10 @@ export function adminHtmlOsszeallit() {
             <header>
                 <h2>Hangeszközök adatainak megjelenítése: <b>Admin felület</b></h2>
             </header>
-            <form class="bekertAdatok tablazatFelettiAdatBeker">
-                <input type="text" id="kereso" name="kereso" placeholder="keresés...">
+            <form class="bekertAdatok tablazatFelettiAdatBeker" id="adminBeker">
                 
+                <input type="text" id="kereso" name="kereso" placeholder="keresés...">
+                <br>
                 <label for="szuro">Szűrés:</label>
                 <select name="szuro" id="szuro">
                     <option value="semmi">Válassz...</option>
@@ -25,8 +26,8 @@ export function adminHtmlOsszeallit() {
                 <label for="maxAr">Max:</label>
                 <input type="number" name="maxAr" value="100000" id="maxAr" class="arMinMax">
                 
+                
                 <br>
-
                 <button id="keresGomb">Keresés</button>
                     
             </form>
@@ -77,7 +78,7 @@ export function indexHtmlOsszeallit() {
                 <label for="maxAr">Max:</label>
                 <input type="number" name="maxAr" value="100000" id="maxAr" class="arMinMax">
                 
-                
+                <br>
                 <button id="keresGomb">Keresés</button>
                 
             </form>
@@ -87,7 +88,8 @@ export function indexHtmlOsszeallit() {
         </article>
 
         <aside id="kosarAside">
-        <h1 id="kosarCim">Kosár</h1>
+            <h1 id="kosarCim">Kosár</h1>
+            <div id="kosar"></div>
         </aside>
     
         <footer>
@@ -164,20 +166,14 @@ export function termekekOsszeallit(lista){
 }
 
 export function kosarOsszeallit(lista){
-
-}
-
-export function kosarKezelo(kosarLista, adatLista) {
-    const kosarbaGOMB = $(".kosarbaGomb");
-    
-    kosarbaGOMB.on("click", function(event){
-        kosarLista = [];
-        let id = event.target.id;
-        console.log("Idaig jo");
-        kosarLista.push(adatLista[id]);
-        console.log(kosarLista + "\n");
+    let kosarTermekek = `<div>`;
+    lista.forEach((elem, ind) =>{
+        kosarTermekek += `
+        <h1>${elem[ind].marka} ${elem[ind].modell}</h1>
+        `;
     });
-    return kosarLista;
+    kosarTermekek += `</div>`;
+    return kosarTermekek;
 }
 
 // Szűrők
@@ -189,6 +185,15 @@ export function tulajdonsagSzur(lista, keresett) {
         let tipusSzerint = termek["tipus"].toUpperCase().includes(keresett);
         return modellSzerint || markaSzerint || tipusSzerint;
     });
+    return ujLISTA;
+}
+
+export function arSzur(lista, min, max){
+    const ujLISTA = [];
+    lista.forEach((elem) => {
+        if (min < elem.ar && elem.ar < max) ujLISTA.push(elem);
+    });
+    console.log(ujLISTA);
     return ujLISTA;
 }
 
@@ -207,6 +212,7 @@ export function termekRendez(lista, irany, miSzerint){
 
         return eredmeny*irany;
     });
-        console.log(ujLISTA);
+        //console.log(ujLISTA);
     return ujLISTA;
 }
+

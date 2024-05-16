@@ -27,6 +27,8 @@ body header h1{
 
 #keresGomb{
     background-color: lightgreen;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: medium;
     margin-right: 15px;
     margin-left: 15px;
@@ -45,6 +47,11 @@ body header h1{
     width: 90%;
 }
 
+#termekekArticle .termekekKartya{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
 #kosarAside{
     grid-area: as;
     display: block;
@@ -53,6 +60,8 @@ body header h1{
     border: 5px solid rgb(30, 30, 30);
     border-radius: 10px;
     margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
     max-width: 400px;
     width: 300px;
     opacity: 95%;
@@ -70,6 +79,7 @@ body header h1{
 
 .termekekKartya{
     max-width: 290px;
+    min-width: 290px;
     height: 430px;
     border: 5px outset black;
     align-items: center;
@@ -181,7 +191,7 @@ form{
     margin:auto;
     padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     font-size: large;
 }
 
@@ -189,6 +199,10 @@ form{
     padding: 7px 5px;
     margin: 0px 5px;
     text-align: center;
+}
+
+.tablazatFelettiAdatBeker label{
+    text-align: left;
 }
 
 .tablazatFelettiAdatBeker select{
@@ -299,7 +313,6 @@ footer{
 @media screen and (max-width: 1400px) {
     #termekekArticle{
         grid-template-columns: 1fr 1fr;
-        
     }
     
     #indexMain{
@@ -331,35 +344,50 @@ footer{
         width: 100%;
     }
 
-    #indexMain article, #indexmain aside{
-        margin: auto;
+    #termekekArticle, #kosarAside{
         width: 100%;
     }
 
+    #termekekArticle .termekekKartya{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (max-width: 950px) {
     .tablazatFelettiAdatBeker{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    #indexBeker > *, #adminBeker > *{
+        margin: auto;
     }
 
     .tablazatFelettiAdatBeker > *{
         height: 50px;
+        margin: auto;
     }
 
     #indexMain{
         width: 100%;
     }
- 
-}
 
-@media screen and (max-width: 850px) {
-    .tablazatFelettiAdatBeker{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+    #kosarAside{
+        width: 70%;
     }
 }
 
 @media screen and (max-width: 735px) {
+    #termekekArticle .termekekKartya{
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 90%;
+    }
+    
     #indexMain{
         max-width: 700px;
         grid-template-areas: 
@@ -369,10 +397,30 @@ footer{
         "as"
         "fo"
         ;
+        grid-template-columns: 1fr;
+        margin: auto;
     }   
 
     #kosarAside{
         min-height: 400px;
+        max-width: 60%;
+        margin: auto;
     }
  
+}
+
+@media screen and (max-width: 435px) {    
+    #indexMain{
+        width: 100%;
+        margin: 0px;
+    }
+
+    #indexBody{
+        margin: 0px;
+    }
+
+    #kosarAside{
+        max-width: 100%;
+    }
+
 }

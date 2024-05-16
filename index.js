@@ -1,27 +1,25 @@
 import { termekLISTA } from "./adatok.js";
 import { 
     elotteMegjelenit, utanaMegjelenit, indexHtmlOsszeallit, tulajdonsagSzur,
-    termekekOsszeallit, megjelenitElemben, kosarKezelo,
-    termekRendez
- } from "./fuggvenyek.js";
-
+    termekekOsszeallit, megjelenitElemben, kosarOsszeallit,
+    termekRendez,
+    arSzur
+} from "./fuggvenyek.js";
 
 const bodyELEM = $("body");
-
 function init(lista) {
-    const termekELEM = $("#termekekArticle");
+    const termekELEM = $("#termekekArticle");   
     megjelenitElemben(termekELEM, termekekOsszeallit(lista));
-    kosarKezelo();
 }
-utanaMegjelenit(bodyELEM, indexHtmlOsszeallit());
 
+utanaMegjelenit(bodyELEM, indexHtmlOsszeallit());
 init(termekLISTA);
 
-
-// Szűrők:
 const keresoMEZO = $("#kereso");
 const keresGOMB = $("#keresGomb");
 const rendezELEM = $("#rendez");
+const minSZURO = $("#minAr");
+const maxSZURO = $("#maxAr");
 
 keresGOMB.on("click", function(event){
     event.preventDefault();
@@ -29,30 +27,48 @@ keresGOMB.on("click", function(event){
     const szurtLISTA = tulajdonsagSzur(termekLISTA, keresoMEZO.val().toUpperCase());
     // rendezés
     const rendezesSZERINT = $(rendezELEM).val();
+    // ár szerint
+    const minAR = minSZURO.val();
+    const maxAR = maxSZURO.val();
 
-    let rendezettLISTA = [];
+    let rendezettLista = [];
     
-    if (rendezesSZERINT === "nevcsokk") rendezettLISTA = termekRendez(szurtLISTA, -1, "modell");
-    else if (rendezesSZERINT === "nevnov") rendezettLISTA = termekRendez(szurtLISTA, 1, "modell");
-    else if (rendezesSZERINT === "arcsokk") rendezettLISTA = termekRendez(szurtLISTA, -1, "ar");
-    else if (rendezesSZERINT === "arnov") rendezettLISTA = termekRendez(szurtLISTA, 1, "ar");     
-    
-    init(szurtLISTA);
+    if (rendezesSZERINT === "nevcsokk") rendezettLista = termekRendez(szurtLISTA, -1, "modell");
+    else if (rendezesSZERINT === "nevnov") rendezettLista = termekRendez(szurtLISTA, 1, "modell");
+    else if (rendezesSZERINT === "arcsokk") rendezettLista = termekRendez(szurtLISTA, -1, "ar");
+    else if (rendezesSZERINT === "arnov") rendezettLista = termekRendez(szurtLISTA, 1, "ar");     
+    else rendezettLista = szurtLISTA;
+
+    let arSzurtLista = arSzur(rendezettLista, minAR, maxAR);
+    init(arSzurtLista);
 });
 
 
+// Kosár:
+function kosarInit(lista){
+    
+}
 
+let kosarLISTA = [];
+const kosarbaGOMB = $(".kosarbaGomb");
 
-const kosarLISTA = [];
-kosarKezelo(kosarLISTA, termekLISTA);
+kosarbaGOMB.on("click", function(event){
+    let id = event.target.id;
+    //console.log($(termekLISTA[id]).toArray()); - Tömbként adja vissza
+    let db = 1;
+    if(kosarLISTA.includes($(termekLISTA[id]))){
+        db++;
+    } 
+    else kosarLISTA.push($(termekLISTA[id]));
+    const kosarELEM = $('#kosar');
+    megjelenitElemben(kosarELEM, kosarOsszeallit(kosarLISTA));
 
-
+});
 
 
 
 //utanaMegjelenit("#indexKeresoAllapotGomb", `<button></button>`)
 
-const mainELEM = $('#indexMain');
-if (window.innerWidth <= 1000) utanaMegjelenit(mainELEM, `<br><br><a href="admin.html" class="feluletValto" id="felhFelValt"><i class="material-icons">	security</i></a><br>`);
-else utanaMegjelenit(mainELEM, `<br><br><a href="admin.html" class="feluletValto" id="felhFelValt">Admin felület</a><br>`);
+if (window.innerWidth <= 1000) utanaMegjelenit(bodyELEM, `<br><br><a href="admin.html" class="feluletValto" id="felhFelValt"><i class="material-icons">	security</i></a><br>`);
+else utanaMegjelenit(bodyELEM, `<br><br><a href="admin.html" class="feluletValto" id="felhFelValt">Admin felület</a><br>`);
 // Oldal alja
