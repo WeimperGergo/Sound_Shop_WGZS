@@ -60,7 +60,7 @@ body header h1{
 
 #kosarCim{
     text-align: center;
-    color: rgb(203, 203, 203);
+    color: rgb(223, 222, 222);
     text-shadow: 1px 1px 4px black;
     border: 1px double black;
     margin: auto;
@@ -78,6 +78,13 @@ body header h1{
     margin: 10px;
     box-shadow: 1px 1px 5px black;
     background-color: rgba(59, 59, 59, 0.774);
+    transition-duration: 0.4s;
+}
+
+.termekekKartya:hover{
+    transition-duration: 0.3s;
+    background-color: rgba(32, 31, 31, 0.774);
+    opacity: 90%;
 }
 
 .termekKep{
@@ -116,6 +123,12 @@ body header h1{
     margin-right: 0px;
     padding: 10px;
     border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.kosarbaGomb:hover{
+    transition-duration: 0.3s;
+    background-color: gray;
 }
 
 /* Főleg admin */

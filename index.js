@@ -1,7 +1,8 @@
 import { termekLISTA } from "./adatok.js";
 import { 
     elotteMegjelenit, utanaMegjelenit, indexHtmlOsszeallit, tulajdonsagSzur,
-    termekekOsszeallit, megjelenitElemben
+    termekekOsszeallit, megjelenitElemben, kosarKezelo,
+    termekRendez
  } from "./fuggvenyek.js";
 
 
@@ -20,24 +21,32 @@ init(termekLISTA);
 // Szűrők:
 const keresoMEZO = $("#kereso");
 const keresGOMB = $("#keresGomb");
-
+const rendezELEM = $("#rendez");
 
 keresGOMB.on("click", function(event){
     event.preventDefault();
+    // keresés
     const szurtLISTA = tulajdonsagSzur(termekLISTA, keresoMEZO.val().toUpperCase());
+    // rendezés
+    const rendezesSZERINT = $(rendezELEM).val();
+
+    let rendezettLISTA = [];
+    
+    if (rendezesSZERINT === "nevcsokk") rendezettLISTA = termekRendez(szurtLISTA, -1, "modell");
+    else if (rendezesSZERINT === "nevnov") rendezettLISTA = termekRendez(szurtLISTA, 1, "modell");
+    else if (rendezesSZERINT === "arcsokk") rendezettLISTA = termekRendez(szurtLISTA, -1, "ar");
+    else if (rendezesSZERINT === "arnov") rendezettLISTA = termekRendez(szurtLISTA, 1, "ar");     
+    
     init(szurtLISTA);
 });
 
+
+
+
 const kosarLISTA = [];
-function kosarKezelo() {
-    const kosarbaGOMB = $(".kosarbaGomb");
-    console.log(kosarbaGOMB);
-    kosarbaGOMB.on("click", function(event){
-    event.preventDefault();
-    //kosarLISTA.append();
-    console.log(event.target.id + "\n");
-});
-}
+kosarKezelo(kosarLISTA, termekLISTA);
+
+
 
 
 

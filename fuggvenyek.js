@@ -62,13 +62,13 @@ export function indexHtmlOsszeallit() {
                 
                 <br>
 
-                <label for="szuro">Szűrés:</label>
-                <select name="szuro" id="szuro">
+                <label for="rendez">Rendezés:</label>
+                <select name="rendez" id="rendez">
                     <option value="semmi">Válassz...</option>
                     <option value="nevcsokk">Név szerint csökkenő</option>
                     <option value="nevnov">Név szerint növekvő</option>
-                    <option value="markacsokk">Márka szerint csökkenő</option>
-                    <option value="markanov">Márka szerint növekvő</option>
+                    <option value="arcsokk">Ár szerint csökkenő</option>
+                    <option value="arnov">Ár szerint növekvő</option>
                 </select>
 
                 <label for="minAr">Min:</label>
@@ -150,17 +150,34 @@ export function termekekOsszeallit(lista){
         tartalom += `
         <div class="termekekKartya">
             <div id="${elem.modell.replace(" ", "").toLowerCase()}Id">
-                <img src="${elem.kep}" alt="termék kép" class="termekKep kozeptxt termekCim" id="${elem.modell}Kep" onclick="kepNagyit()">
+                <img src="${elem.kep}" alt="termék kép" class="termekKep kozeptxt termekCim" id="${elem.modell}Kep">
                 <h3 class="kozeptxt termekCim">${elem.modell}</h3>
                 <h5 class="kozeptxt termekCim">${elem.marka}</h5>
                 ${raktaronE}
                 <h2 class="termekAr">Ár: ${elem.ar}Ft</h2>
-                <button class="kosarbaGomb" id="termek${ind}">Kosárba</button>
+                <button class="kosarbaGomb" id="${ind}">Kosárba</button>
             </div>
         </div>`;
         
     }); 
     return tartalom;
+}
+
+export function kosarOsszeallit(lista){
+
+}
+
+export function kosarKezelo(kosarLista, adatLista) {
+    const kosarbaGOMB = $(".kosarbaGomb");
+    
+    kosarbaGOMB.on("click", function(event){
+        kosarLista = [];
+        let id = event.target.id;
+        console.log("Idaig jo");
+        kosarLista.push(adatLista[id]);
+        console.log(kosarLista + "\n");
+    });
+    return kosarLista;
 }
 
 // Szűrők
@@ -172,5 +189,24 @@ export function tulajdonsagSzur(lista, keresett) {
         let tipusSzerint = termek["tipus"].toUpperCase().includes(keresett);
         return modellSzerint || markaSzerint || tipusSzerint;
     });
+    return ujLISTA;
+}
+
+export function termekRendez(lista, irany, miSzerint){
+    const ujLISTA = lista.sort(function(t1, t2){
+        let eredmeny = 1;
+            if ((typeof t1[miSzerint]) === "string" || (typeof t2[miSzerint]) === "string"){     
+                const eztKAR = ["á", "é", "í", "ó", "ő", "ú", "ű"];
+                const erreKAR = ["a", "e", "i", "o", "o", "u", "u"];
+                for (let i = 0; i < eztKAR.length; i++) {      
+                    t1[miSzerint].replaceAll(eztKAR[i], erreKAR[i]);
+                    t2[miSzerint].replaceAll(eztKAR[i], erreKAR[i]);
+                }
+            }    
+        if (t1[miSzerint] < t2[miSzerint]) eredmeny = -1;
+
+        return eredmeny*irany;
+    });
+        console.log(ujLISTA);
     return ujLISTA;
 }
