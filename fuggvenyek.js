@@ -167,9 +167,10 @@ export function termekekOsszeallit(lista){
 
 export function kosarOsszeallit(lista){
     let kosarTermekek = `<div>`;
+    console.log(lista)
     lista.forEach((elem, ind) =>{
         kosarTermekek += `
-        <h1>${elem[ind].marka} ${elem[ind].modell}</h1>
+        <h1>${elem.marka} ${elem.modell}</h1>
         `;
     });
     kosarTermekek += `</div>`;

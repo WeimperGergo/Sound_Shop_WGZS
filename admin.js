@@ -4,7 +4,12 @@ import {
     adminTablazatOsszeallit, megjelenitElemben
  } from "./fuggvenyek.js";
 
+
 const bodyELEM = $("body");
+const keresoMEZO = $("#kereso");
+const keresGOMB = $("#keresGomb");
+const articleELEM = $("#adminArticle");
+
 if (window.innerWidth <= 1000) {
     elotteMegjelenit(bodyELEM, `<a href="index.html" class="feluletValto" id="felhFelValt"><i class="material-icons">account_circle</i></a><br>`);
 }
@@ -20,9 +25,7 @@ termekLISTA.forEach(elem => {
     }
     console.log();
 });*/
-const keresoMEZO = $("#kereso");
-const keresGOMB = $("#keresGomb");
-const articleELEM = $("#adminArticle");
+
 keresGOMB.on("click", function(){
     event.preventDefault();
 

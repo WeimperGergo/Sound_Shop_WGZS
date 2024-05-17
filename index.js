@@ -18,8 +18,7 @@ init(termekLISTA);
 const keresoMEZO = $("#kereso");
 const keresGOMB = $("#keresGomb");
 const rendezELEM = $("#rendez");
-const minSZURO = $("#minAr");
-const maxSZURO = $("#maxAr");
+
 
 keresGOMB.on("click", function(event){
     event.preventDefault();
@@ -28,8 +27,8 @@ keresGOMB.on("click", function(event){
     // rendezés
     const rendezesSZERINT = $(rendezELEM).val();
     // ár szerint
-    const minAR = minSZURO.val();
-    const maxAR = maxSZURO.val();
+    const minAR = $("#minAr").val();
+    const maxAR = $("#maxAr").val();
 
     let rendezettLista = [];
     
@@ -55,11 +54,8 @@ const kosarbaGOMB = $(".kosarbaGomb");
 kosarbaGOMB.on("click", function(event){
     let id = event.target.id;
     //console.log($(termekLISTA[id]).toArray()); - Tömbként adja vissza
-    let db = 1;
-    if(kosarLISTA.includes($(termekLISTA[id]))){
-        db++;
-    } 
-    else kosarLISTA.push($(termekLISTA[id]));
+    
+    kosarLISTA.push(termekLISTA[id]);
     const kosarELEM = $('#kosar');
     megjelenitElemben(kosarELEM, kosarOsszeallit(kosarLISTA));
 
